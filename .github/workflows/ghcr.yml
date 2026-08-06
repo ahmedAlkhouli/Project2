@@ -28,7 +28,7 @@ jobs:
       - name: Build and push Backend Image
         uses: docker/build-push-action@v5
         with:
-          context: ./backend
+          context: .                          # <--- Changed to root
           file: ./backend/dockerfile
           push: true
           tags: ghcr.io/ahmedalkhouli/project2/expense-tracker-backend:latest
@@ -36,7 +36,7 @@ jobs:
       - name: Build and push Frontend Image
         uses: docker/build-push-action@v5
         with:
-          context: ./frontend
+          context: .                          # <--- Changed to root
           file: ./frontend/dockerfile
           push: true
           tags: ghcr.io/ahmedalkhouli/project2/expense-tracker-frontend:latest
