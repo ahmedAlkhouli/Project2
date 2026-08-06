@@ -15,10 +15,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Lowercase Repository Name
-        run: |
-          echo "REPO_LOWER=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
-
       - name: Log in to the Container Registry
         uses: docker/login-action@v3
         with:
@@ -35,7 +31,7 @@ jobs:
           context: ./backend
           file: ./backend/dockerfile
           push: true
-          tags: ghcr.io/${{ env.REPO_LOWER }}/expense-tracker-backend:latest
+          tags: ghcr.io/ahmedalkhouli/project2/expense-tracker-backend:latest
 
       - name: Build and push Frontend Image
         uses: docker/build-push-action@v5
@@ -43,4 +39,4 @@ jobs:
           context: ./frontend
           file: ./frontend/dockerfile
           push: true
-          tags: ghcr.io/${{ env.REPO_LOWER }}/expense-tracker-frontend:latest
+          tags: ghcr.io/ahmedalkhouli/project2/expense-tracker-frontend:latest
