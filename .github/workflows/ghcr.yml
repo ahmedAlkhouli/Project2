@@ -1,5 +1,5 @@
 name: GHCR CI/CD Pipeline
-
+          
 on:
   push:
     branches: [ "main" ]
@@ -25,10 +25,11 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      # Replace your old step with this updated one
       - name: Build and push Image
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./dockerfile
+          file: ./backend/dockerfile
           push: true
           tags: ghcr.io/ahmedalkhouli/project2/expense-tracker:latest
