@@ -25,18 +25,10 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build and push Backend Image
+      - name: Build and push Image
         uses: docker/build-push-action@v5
         with:
-          context: .                          # <--- Changed to root
-          file: ./backend/dockerfile
+          context: .
+          file: ./dockerfile
           push: true
-          tags: ghcr.io/ahmedalkhouli/project2/expense-tracker-backend:latest
-
-      - name: Build and push Frontend Image
-        uses: docker/build-push-action@v5
-        with:
-          context: .                          # <--- Changed to root
-          file: ./frontend/dockerfile
-          push: true
-          tags: ghcr.io/ahmedalkhouli/project2/expense-tracker-frontend:latest
+          tags: ghcr.io/ahmedalkhouli/project2/expense-tracker:latest
