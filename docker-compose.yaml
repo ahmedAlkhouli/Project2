@@ -1,8 +1,9 @@
+version: '3.8'
+
 services:
   backend:
-    build:
-      context: .
-      dockerfile: backend/dockerfile
+    image: ghcr.io/ahmedalkhouli/project2/expense-tracker:latest
+    user: "1000"
     ports:
       - "8000:5000"
     environment:
